@@ -1,6 +1,5 @@
 import AuthProvider from '@/components/SessionProvider';
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import LayoutWrapper from '@/components/LayoutWrapper';
 import "./globals.css";
 
 export const metadata = {
@@ -13,11 +12,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <AuthProvider>
-          <Navbar />
-          <main className="min-h-screen pt-16">
+          <LayoutWrapper>
             {children}
-          </main>
-          <Footer />
+          </LayoutWrapper>
         </AuthProvider>
       </body>
     </html>
