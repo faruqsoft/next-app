@@ -4,11 +4,18 @@ import Product from '@/models/Product';
 
 export async function GET() {
   try {
-    await connectDB();
-    const count = await Product.countDocuments();
-    return NextResponse.json({ count });
+    const mongoose = await connectDB();
+    console.log('MongoDB connection status:', mongoose.connection.readyState);
+
+    const count = await Product.countDocuments({});
+    console.log('Product count:', count);
+
+    return NextResponse.json({ count, success: true });
   } catch (error) {
     console.error('Error getting product count:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to fetch product count', details: error.message },
+      { status: 500 }
+    );
   }
 }
