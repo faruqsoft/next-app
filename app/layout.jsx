@@ -1,19 +1,24 @@
-"use client";
-
-import { SessionProvider } from "next-auth/react";
+import AuthProvider from '@/components/SessionProvider';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
+
+export const metadata = {
+  title: 'ProductApp',
+  description: 'Browse and manage products',
+};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <SessionProvider>
+        <AuthProvider>
           <Navbar />
-          {children}
+          <main className="min-h-screen pt-16">
+            {children}
+          </main>
           <Footer />
-        </SessionProvider>
+        </AuthProvider>
       </body>
     </html>
   );
