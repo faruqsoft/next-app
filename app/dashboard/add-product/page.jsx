@@ -123,7 +123,7 @@ export default function AddProduct() {
               type="text"
               value={form.name}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${
+              className={`mt-1 block w-full rounded-md border border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${
                 errors.name ? 'border-red-500' : ''
               }`}
             />
@@ -142,7 +142,7 @@ export default function AddProduct() {
               rows="4"
               value={form.description}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${
+              className={`mt-1 block w-full rounded-md border border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${
                 errors.description ? 'border-red-500' : ''
               }`}
             />
@@ -163,7 +163,7 @@ export default function AddProduct() {
               step="0.01"
               value={form.price}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${
+              className={`mt-1 block w-full rounded-md border border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${
                 errors.price ? 'border-red-500' : ''
               }`}
             />
@@ -182,16 +182,16 @@ export default function AddProduct() {
               type="url"
               value={form.image}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${
+              className={`mt-1 block w-full rounded-md border border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${
                 errors.image ? 'border-red-500' : ''
               }`}
-              placeholder="https://i.ibb.co/your-image-path"
+              placeholder="https://i.ibb.co.com/your-image-path"
             />
             {errors.image && (
               <p className="mt-1 text-sm text-red-600">{errors.image}</p>
             )}
             <p className="mt-1 text-xs text-gray-500">
-              Please use images hosted on i.ibb.co
+              Please use images hosted on i.ibb.co.com
             </p>
           </div>
 
@@ -212,7 +212,7 @@ export default function AddProduct() {
             >
               {isLoading ? (
                 <div className="flex items-center">
-                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                  <div className="w-4 h-4 border-2 border-gray-300 border-t-transparent rounded-full animate-spin mr-2"></div>
                   Adding...
                 </div>
               ) : (
