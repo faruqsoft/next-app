@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Project Name & Tagline */}
         <h2 className="text-xl font-semibold">ProductApp</h2>
         <p className="text-gray-400 text-sm mt-1">
-          Manage, list, and showcase your products efficiently.
+          Manage, list, and showcase my products efficiently.
         </p>
 
         {/* Social Links */}

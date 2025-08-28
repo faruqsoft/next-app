@@ -43,6 +43,16 @@ export default function AddProduct() {
     if (!form.name.trim()) newErrors.name = "Name is required";
     if (!form.description.trim()) newErrors.description = "Description is required";
     if (!form.price || form.price <= 0) newErrors.price = "Valid price is required";
+    if (form.image) {
+      try {
+        const url = new URL(form.image);
+        if (url.hostname !== 'i.ibb.co.com') {
+          newErrors.image = "Image URL must be from i.ibb.co.com";
+        }
+      } catch (e) {
+        newErrors.image = "Please enter a valid URL";
+      }
+    }
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -172,9 +182,17 @@ export default function AddProduct() {
               type="url"
               value={form.image}
               onChange={handleChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-              placeholder="https://example.com/image.jpg"
+              className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${
+                errors.image ? 'border-red-500' : ''
+              }`}
+              placeholder="https://i.ibb.co/your-image-path"
             />
+            {errors.image && (
+              <p className="mt-1 text-sm text-red-600">{errors.image}</p>
+            )}
+            <p className="mt-1 text-xs text-gray-500">
+              Please use images hosted on i.ibb.co
+            </p>
           </div>
 
           <div className="flex items-center justify-end gap-4">
